@@ -1,6 +1,19 @@
+import { Formik } from 'formik';
 
 export function FormikEnvironment() {
   return (
-    <div>FormikEnvironment</div>
-  )
+    <>
+    
+      <Formik
+        // validationSchema={}
+        initialValues={{}}
+        onSubmit={(values, { setSubmitting }) => {
+          console.log(values)
+        }} >
+           {({ handleChange, handleBlur, handleSubmit, values, setFieldValue, errors, touched  }) => (
+             <input type={'text'} onChange={handleChange} onBlur={handleBlur} value={'values'} />
+           )}
+      </Formik>
+    </>
+    )
 }
