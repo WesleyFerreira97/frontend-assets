@@ -4,6 +4,7 @@ import { FormikEnvironment } from './pages/FormikEnvironment'
 import { GlobalStyle } from './styles/global'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
+import { TextView } from './components/TextView'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <BrowserRouter>
+        <TextView tag="p" className='fuck'>adfdas</TextView>
           <Routes>
             <Route path="/" element={<FormikEnvironment />} />
           </Routes>
