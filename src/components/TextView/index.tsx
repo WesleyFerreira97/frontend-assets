@@ -8,11 +8,11 @@ interface TextViewProps extends HTMLAttributes<HTMLHeadElement> {
 }
 
 export function TextView({tag, children, ...props}: TextViewProps) {
-    const Tag = tag || 'h1'
+	const Tag = tag || 'h1'
 
-    return (
-        <TextViewWrap>
-            {createElement(Tag, {...props, className: "text"}, children)}
-        </TextViewWrap>
-    )
+	return (
+		<TextViewWrap>
+			{createElement(Tag, {...props, className: 'text'}, children)}
+		</TextViewWrap>
+	)
 }

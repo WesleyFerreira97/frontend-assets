@@ -8,10 +8,10 @@ interface ButtonProps {
 }
 
 export function Button(props: ButtonProps) {
-    const { children, onClick, ...rest } = props
-    return (
-        <>
-            <ButtonDefault {...rest} onClick={onClick}>{children}</ButtonDefault>
-        </>
-    )
+	const { children, onClick, ...rest } = props
+	return (
+		<>
+			<ButtonDefault {...rest} onClick={onClick}>{children}</ButtonDefault>
+		</>
+	)
 }

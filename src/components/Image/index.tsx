@@ -8,9 +8,9 @@ interface ImageProps {
 }
 
 export function Image({ src, alt, behavior } : ImageProps) {
-  return (
-    <ImageStyle behavior={behavior}>
-      <img src={src} alt={alt} />  
-    </ImageStyle>
-  )
+	return (
+		<ImageStyle behavior={behavior}>
+			<img src={src} alt={alt} />  
+		</ImageStyle>
+	)
 }

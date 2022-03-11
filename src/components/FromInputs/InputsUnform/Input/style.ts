@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { typography } from "../../styles/typography";
+import styled from 'styled-components'
 
 export const InputStyled = styled.div`
     color: #fff;
@@ -14,7 +13,6 @@ export const InputStyled = styled.div`
         outline: none;
         color: ${props => props.theme.colors.neutral};
         background-color: ${props => props.theme.colors.input};
-        ${typography.TextNormal};
     }
 
     .error-message {
@@ -23,5 +21,5 @@ export const InputStyled = styled.div`
         font-size: 12px;
         margin: .5rem 0 0;
     }
-`;
+`
 

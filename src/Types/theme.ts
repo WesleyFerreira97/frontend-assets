@@ -3,7 +3,9 @@ export interface ThemeProps {
         colors: {
             primary: string
             secondary: string
+            secondaryAlt: string
             neutral: string
+            neutralAlt: string
             white: string
             gray: string
         }
