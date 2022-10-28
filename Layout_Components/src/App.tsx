@@ -26,16 +26,4 @@ function App() {
   )
 }
 
-export default App
-
-
-// Grid 
-// Controla o direcionamento dos items
-// Pode controlar a quantidade de colunas por breakpoints
-
-// Grid Item
-// Controla o tamanho da coluna por breakpoints
-
-
-// Repos 
-// React assets
+export default App;

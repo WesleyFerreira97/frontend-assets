@@ -7,7 +7,15 @@ type GridProps = {
 }
 
 const GridWrap = styled.div`
-	
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	/* flex-direction: column; */
+
+	> * {
+		flex-basis: 33.33%;
+		max-width: 33.33%;
+	}
 `;
 
 function Grid({ children }: GridProps) {
