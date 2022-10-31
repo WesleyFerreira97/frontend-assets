@@ -1,26 +1,27 @@
-import { PropsWithChildren, ReactNode } from "react";
-import styled from "styled-components";
+import { ReactNode } from "react";
+import { GridWrap } from "./styles";
 import { GridItem } from "./GridItem";
 
-type GridProps = {
-	children: ReactNode | ReactNode[] | undefined;
+type Breakpoints = "xs" | "sm" | "md" | "lg" | "xl";
+type GridSizes = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+type BreakpointProps = {
+	[Key in Breakpoints]: GridSizes;
 }
 
-const GridWrap = styled.div`
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	/* flex-direction: column; */
+type ColumnsProps = {
+	columns: Partial<BreakpointProps>;
+}
 
-	> * {
-		flex-basis: 33.33%;
-		max-width: 33.33%;
-	}
-`;
+interface GridProps extends Partial<ColumnsProps> {
+	children?: ReactNode | ReactNode[];
+}
 
-function Grid({ children }: GridProps) {
+function Grid({ children, ...props }: GridProps) {
+	console.log(props.columns);
+
 	return (
-		<GridWrap>
+		<GridWrap breakpoints={props.columns}>
 			{children}
 		</GridWrap>
 	);
