@@ -16,7 +16,7 @@ function App() {
   return (
     <AppStyled>
 
-      <Grid columns={{ xs: 3 }}>
+      <Grid columns={{ xs: 6, sm: 4, md: 3 }}>
         {allItems.map((item, index) => (
           <Grid.Item key={index}>
             <Card />
