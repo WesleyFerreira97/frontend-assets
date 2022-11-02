@@ -1,15 +1,23 @@
 import styled from "styled-components";
 import { gridColSize } from "./GridUtils";
-console.log(gridColSize[2]);
+import { BreakpointProps, ColumnsProps } from "./types";
 
-export const GridWrap = styled.div<any>`
-    color: ${({ breakpoints }) => breakpoints.xs};
+function getColSize(colSize: number | undefined) {
+    return colSize;
+}
+
+export const GridWrap = styled.div.attrs(({ columns }: ColumnsProps) => ({
+    columns: {
+        xs: getColSize(columns.xs) || 0,
+        sm: columns.sm,
+        md: getColSize(columns.md),
+    }
+}))`
     
+    width: ${({ columns }) => columns?.xs};
+
     @media (maxWidth: 650px) {
         * > {
-        ${({ breakpoints }) => breakpoints.xs};
-            max-width: ${gridColSize[2]};
         }
     }
 `;
-
