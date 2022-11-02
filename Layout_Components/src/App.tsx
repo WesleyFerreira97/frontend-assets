@@ -15,13 +15,15 @@ function App() {
 
   return (
     <AppStyled>
-      <Grid>
+
+      <Grid columns={{ xs: 3 }}>
         {allItems.map((item, index) => (
           <Grid.Item key={index}>
             <Card />
           </Grid.Item>
         ))}
       </Grid>
+
     </AppStyled>
   )
 }

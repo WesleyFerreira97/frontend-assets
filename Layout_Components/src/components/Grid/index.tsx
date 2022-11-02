@@ -3,10 +3,11 @@ import { GridWrap } from "./styles";
 import { GridItem } from "./GridItem";
 import { ColumnsProps, GridProps } from "./types";
 
-function Grid({ children, columns }: GridProps) {
-	const ex1 = columns ? columns : '';
+function Grid({ children, columns }: Partial<GridProps>) {
+	const columnsWithDefaut = columns ? columns : {};
+
 	return (
-		<GridWrap columns={{ xs: 2, sm: 3 }}>
+		<GridWrap columns={columnsWithDefaut}>
 			{children}
 		</GridWrap>
 	);
@@ -15,3 +16,4 @@ function Grid({ children, columns }: GridProps) {
 Grid.Item = GridItem;
 
 export { Grid };
+
