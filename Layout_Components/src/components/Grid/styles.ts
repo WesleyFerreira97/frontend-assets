@@ -15,6 +15,7 @@ export const GridWrap = styled.div.attrs(({ columns }: ColumnsProps) => ({
     
     display: flex;
     flex-wrap: wrap;
+    /* gap: 2rem; */
 
     > * {
         ${({ columns }) => columns?.xs && defineColumnCss(columns?.xs)};
