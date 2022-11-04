@@ -1,6 +1,15 @@
 import { css } from "styled-components";
 import { ColumnsRange } from "./types";
 
+const spacing = {
+    1: '8px',
+    2: '12px',
+    3: '16px',
+    4: '24px',
+    5: '32px',
+    6: '48px',
+}
+
 const gridColSize = {
     1: '8.33333333%',
     2: '16.66666667%',
@@ -26,13 +35,21 @@ const defineColumnCss = (columnSize: string | number) => {
     if (!columnSize) return null;
 
     return css`
-        max-width: ${columnSize};
+        max-width: ${columnSize}; 
         flex-basis: ${columnSize};
     `
 };
 
+function getGapSize(colSize?: ColumnsRange) {
+    if (!colSize) return null;
+
+    return gridColSize[colSize];
+}
+
 
 export {
+    spacing,
+    getGapSize,
     gridColSize,
     getColSize,
     defineColumnCss

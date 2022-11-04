@@ -1,21 +1,26 @@
 import styled, { css } from "styled-components";
-import { gridColSize, getColSize, defineColumnCss } from "./GridUtils";
+import { gridColSize, getColSize, defineColumnCss, getGapSize } from "./GridUtils";
 import { BreakpointProps, ColumnsProps, ColumnsRange } from "./types";
 
 
-export const GridWrap = styled.div.attrs(({ columns }: ColumnsProps) => ({
+export const GridWrap = styled.div.attrs(({ columns }: ColumnsProps & GapRange) => ({
     columns: {
         xs: getColSize(columns.xs),
         sm: getColSize(columns.sm),
         md: getColSize(columns.md),
         lg: getColSize(columns.lg),
         xl: getColSize(columns.xl),
+    },
+    gap: {
+        xs: getGapSize(gap.xs),
     }
 }))`
     
     display: flex;
     flex-wrap: wrap;
-    /* gap: 2rem; */
+    row-gap: 1rem;
+    width: 100%;
+    background-color: #1F1D36;
 
     > * {
         ${({ columns }) => columns?.xs && defineColumnCss(columns?.xs)};
