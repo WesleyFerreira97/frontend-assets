@@ -3,7 +3,7 @@ import { gridColSize, getColSize, defineColumnCss, getGapSize } from "./GridUtil
 import { BreakpointProps, ColumnsProps, ColumnsRange } from "./types";
 
 
-export const GridWrap = styled.div.attrs(({ columns }: ColumnsProps & GapRange) => ({
+export const GridWrap = styled.div.attrs(({ columns }: ColumnsProps) => ({
     columns: {
         xs: getColSize(columns.xs),
         sm: getColSize(columns.sm),
@@ -12,7 +12,7 @@ export const GridWrap = styled.div.attrs(({ columns }: ColumnsProps & GapRange) 
         xl: getColSize(columns.xl),
     },
     gap: {
-        xs: getGapSize(gap.xs),
+        // xs: getGapSize(gap.xs),
     }
 }))`
     
