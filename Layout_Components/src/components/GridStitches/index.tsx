@@ -3,14 +3,18 @@ import { GridItem } from './GridItem';
 import { GridWrap } from './styles';
 import { GridProps } from './types';
 
-function Grid({ children }: GridProps) {
+function Grid({ children, ...props }: GridProps) {
     return (
-        <GridWrap>
+        <GridWrap
+            css={{
+                gapXY: props.gap
+            }}
+        >
             {children}
         </GridWrap>
     )
 }
 
-GridItem.Item = GridItem;
+Grid.Item = GridItem;
 
 export { Grid }
