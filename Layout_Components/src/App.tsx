@@ -16,8 +16,9 @@ function App() {
     <AppStyled>
 
       <Grid
-        gap={1}
-      // columns={{ xs: 6, sm: 4, md: 3, lg: 2 }}
+        // gap={2}
+        columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
+        gap={{ xs: 1, sm: 4, md: 3, lg: 6 }}
       >
         {allItems.map((item, index) => (
           <Grid.Item key={index}>

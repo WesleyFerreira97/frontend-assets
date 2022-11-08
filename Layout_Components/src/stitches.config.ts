@@ -1,7 +1,6 @@
 import { createStitches } from '@stitches/react';
-import { SpacingProps } from './components/GridStitches/types';
-
-
+import { ColumnsRange } from './components/GridSC/types';
+import { GapValues } from './components/GridStitches/types';
 
 export const spacing = {
     1: '8px',
@@ -36,12 +35,12 @@ export const { styled, getCssText, } = createStitches({
         xl: '(min-width: 1400px)',
     },
     utils: {
-        gapXY: (value: SpacingProps) => ({
+        gapXY: (value: GapValues) => ({
             gap: spacing[value],
         }),
-        breakpoints: (value: any) => ({
-            display: value,
-            position: 'absolute',
+        columns: (value: ColumnsRange) => ({
+            display: 'grid',
+            gridTemplateColumns: `repeat(${value}, 1fr)`
         })
     }
 });
