@@ -7,7 +7,7 @@ function Grid({ children, ...props }: GridProps) {
     return (
         <GridWrap
             css={{
-                gapXY: props.gap
+                gapXY: props.gap,
             }}
         >
             {children}

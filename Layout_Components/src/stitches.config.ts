@@ -28,9 +28,20 @@ export const { styled, getCssText, } = createStitches({
         },
         spacing,
     },
+    media: {
+        xs: '(max-width: 650px)',
+        sm: '(min-width: 650px)',
+        md: '(min-width: 960px)',
+        lg: '(min-width: 1280px)',
+        xl: '(min-width: 1400px)',
+    },
     utils: {
         gapXY: (value: SpacingProps) => ({
             gap: spacing[value],
+        }),
+        breakpoints: (value: any) => ({
+            display: value,
+            position: 'absolute',
         })
     }
 });
