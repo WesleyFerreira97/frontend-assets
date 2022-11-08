@@ -11,7 +11,7 @@ export const spacing = {
     6: '48px',
 }
 
-export const { styled, getCssText, } = createStitches({
+export const { styled, getCssText, config } = createStitches({
     theme: {
         fonts: {
             system: 'system-ui',
@@ -35,9 +35,27 @@ export const { styled, getCssText, } = createStitches({
         xl: '(min-width: 1400px)',
     },
     utils: {
-        gapXY: (value: GapValues) => ({
-            gap: spacing[value],
-        }),
+        breakpoints: (value: any) => {
+            const finalStyle = {};
+
+            // Create object with breakpoint pattern
+            Object.keys(value).forEach((item) => {
+                return finalStyle[`@${item}`] = { gap: spacing[1] };
+            })
+
+            return finalStyle;
+        },
+        gapXY: (value: GapValues) => {
+            // When input number
+            if (typeof value === 'number') {
+                return { gap: value }
+            }
+
+            // When input object with Breakpoints
+            return {
+                breakpoints: value
+            }
+        },
         columns: (value: ColumnsRange) => ({
             display: 'grid',
             gridTemplateColumns: `repeat(${value}, 1fr)`
