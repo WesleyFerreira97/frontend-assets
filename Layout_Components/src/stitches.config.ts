@@ -36,11 +36,25 @@ export const { styled, getCssText, config } = createStitches({
     },
     utils: {
         breakpoints: (value: any) => {
+            const { breakpointValues, cssProps } = value;
+            const finalStyle: any = {};
+
+            // Create object with stitcher breakpoint pattern
+            Object.keys(breakpointValues).forEach((item) => {
+                const currentValue = breakpointValues[item];
+                const ex1 = spacing[currentValue as GapValues];
+
+                return finalStyle[`@${item}`] =
+                    { setValuesProps: { cssProps, ex1 } };
+            })
+
+            return finalStyle;
+        },
+        setValuesProps: (values: any) => {
             const finalStyle = {};
 
-            // Create object with breakpoint pattern
-            Object.keys(value).forEach((item) => {
-                return finalStyle[`@${item}`] = { gap: spacing[1] };
+            Object.keys(values.values).forEach(item => {
+                return
             })
 
             return finalStyle;
@@ -53,7 +67,7 @@ export const { styled, getCssText, config } = createStitches({
 
             // When input object with Breakpoints
             return {
-                breakpoints: value
+                breakpoints: { value, cssProps: ['gap'] }
             }
         },
         columns: (value: ColumnsRange) => ({
@@ -62,3 +76,8 @@ export const { styled, getCssText, config } = createStitches({
         })
     }
 });
+
+
+// 1 - Checar tipagens
+// 2 - Util breakpointns ter uma implementação generica para outros usos
+// 3 - Implementar utils setValuesProps

@@ -11,7 +11,6 @@ function Grid({ children, ...props }: GridProps) {
             css={{
                 gapXY: props.gap || 2,
                 columns: props.columns || 4,
-
             }}
         >
             {children}
