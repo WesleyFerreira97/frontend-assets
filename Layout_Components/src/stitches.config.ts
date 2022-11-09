@@ -35,49 +35,46 @@ export const { styled, getCssText, config } = createStitches({
         xl: '(min-width: 1400px)',
     },
     utils: {
-        breakpoints: (value: any) => {
-            const { breakpointValues, cssProps } = value;
-            const finalStyle: any = {};
-
-            // Create object with stitcher breakpoint pattern
-            Object.keys(breakpointValues).forEach((item) => {
-                const currentValue = breakpointValues[item];
-                const ex1 = spacing[currentValue as GapValues];
-
-                return finalStyle[`@${item}`] =
-                    { setValuesProps: { cssProps, ex1 } };
-            })
-
-            return finalStyle;
-        },
-        setValuesProps: (values: any) => {
-            const finalStyle = {};
-
-            Object.keys(values.values).forEach(item => {
-                return
-            })
-
-            return finalStyle;
-        },
         gapXY: (value: GapValues) => {
             // When input number
             if (typeof value === 'number') {
-                return { gap: value }
+                return { gap: spacing[value] }
             }
 
             // When input object with Breakpoints
-            return {
-                breakpoints: { value, cssProps: ['gap'] }
-            }
+            const finalStyle: { [key: string]: {} } = {};
+
+            Object.keys(value).forEach(item => {
+                const breakpointValue = value[item];
+                const gapSize = spacing[breakpointValue]
+
+                // Return object with breakpoint pattern stitches
+                return finalStyle[`@${item}`] = { gap: gapSize }
+            })
+
+            return finalStyle
         },
-        columns: (value: ColumnsRange) => ({
-            display: 'grid',
-            gridTemplateColumns: `repeat(${value}, 1fr)`
-        })
+        columns: (value: ColumnsRange) => {
+            if (typeof value === 'number') {
+                return {
+                    display: 'grid',
+                    gridTemplateColumns: `repeat(${value}, 1fr)`
+                }
+            }
+
+            const finalStyle: { [key: string]: {} } = {};
+
+            Object.keys(value).forEach(item => {
+                const amountColumns = value[item];
+
+                return finalStyle[`@${item}`] = {
+                    display: 'grid',
+                    gridTemplateColumns: `repeat(${amountColumns}, 1fr)`
+                }
+            })
+
+            return finalStyle;
+        }
     }
 });
 
-
-// 1 - Checar tipagens
-// 2 - Util breakpointns ter uma implementação generica para outros usos
-// 3 - Implementar utils setValuesProps
