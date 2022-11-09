@@ -28,7 +28,8 @@ export const { styled, getCssText, config } = createStitches({
         spacing,
     },
     media: {
-        xs: '(max-width: 650px)',
+        // xs: '(max-width: 650px)',
+        xs: '',
         sm: '(min-width: 650px)',
         md: '(min-width: 960px)',
         lg: '(min-width: 1280px)',

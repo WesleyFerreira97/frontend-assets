@@ -19,7 +19,7 @@ function App() {
         // gap={6}
         // columns={2}
         columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
-        gap={{ xs: 1, sm: 4, md: 3, lg: 6 }}
+        gap={{ xs: 6, sm: 1, lg: 6 }}
       >
         {allItems.map((item, index) => (
           <Grid.Item key={index}>
